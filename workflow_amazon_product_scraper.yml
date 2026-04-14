@@ -1,0 +1,640 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 电商价格监控_Amazon_eBay_Temu
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.12@37699cc3d1ea9e006348a7273a514f3ddf60ffb0649dc735c594c8da6a80934b
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1776049846444-source-1776050322836-target
+      selected: false
+      source: '1776049846444'
+      sourceHandle: source
+      target: '1776050322836'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1776048892818-source-1776060463592-target
+      selected: false
+      source: '1776048892818'
+      sourceHandle: source
+      target: '1776060463592'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1776060463592-source-1776049846444-target
+      selected: false
+      source: '1776060463592'
+      sourceHandle: source
+      target: '1776049846444'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1776068466736-source-1776069951945-target
+      selected: false
+      source: '1776068466736'
+      sourceHandle: source
+      target: '1776069951945'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1776049846444-source-1776068466736-target
+      source: '1776049846444'
+      sourceHandle: source
+      target: '1776068466736'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: 商品详情链接
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: url
+      height: 109
+      id: '1776048892818'
+      position:
+        x: 55.39286254059505
+        y: 256.6795378466151
+      positionAbsolute:
+        x: 55.39286254059505
+        y: 256.6795378466151
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: url
+            ja_JP: url
+            pt_BR: url
+            zh_Hans: url
+          llm_description: ''
+          max: null
+          min: null
+          name: url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          url: ''
+        plugin_id: ''
+        plugin_unique_identifier: ''
+        provider_icon: https://upload.dify.ai/files/cc9adb09-d706-4dd4-8748-61be9ff704ba/file-preview?timestamp=1776060355&nonce=6077f02da4266ff60414f52dafb252e5&sign=bMds-CHR-iWnxFd8y7-5BPQpaE-CPmKVCvmKLwReK0c%3D
+        provider_id: brightdata-mcp-server
+        provider_name: Bright_Data_MCP_电商监控
+        provider_type: mcp
+        selected: false
+        title: web_data_amazon_product
+        tool_configurations: {}
+        tool_description: 'Quickly read structured amazon product data.
+
+          Requires a valid product URL with /dp/ in it.
+
+          This can be a cache lookup, so it can be more reliable than scraping'
+        tool_label: web_data_amazon_product
+        tool_name: web_data_amazon_product
+        tool_node_version: '2'
+        tool_parameters:
+          url:
+            type: mixed
+            value: '{{#1776048892818.url#}}'
+        type: tool
+      height: 84
+      id: '1776060463592'
+      position:
+        x: 368.3610340899909
+        y: 277.6795378466151
+      positionAbsolute:
+        x: 368.3610340899909
+        y: 277.6795378466151
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_config:
+          jinja2_variables:
+          - value_selector:
+            - '1776060463592'
+            - json
+            variable: json
+        prompt_template:
+        - edition_type: basic
+          id: 96fddff4-9f65-4a94-b94a-9ca0917481ab
+          jinja2_text: '{{ text }}'
+          role: system
+          text: "你是一个严格、稳定、无歧义的结构化数据抽取引擎。\n只抽取给定数据中的真实信息，不推断、不脑补、不扩展、不润色。\n\n输出规则（必须严格遵守）：\n\
+            1. 输出必须是合法 JSON，无任何多余文字、无解释、无 Markdown、无代码块。\n2. 字段名必须严格使用“英文/中文”格式，例如\
+            \ \"platform/平台\"。\n3. 数据类型严格区分：\n   - 字符串：正常加双引号\n   - 数字：价格、评分、评价数、销量、排名\
+            \ → 纯数字，不加引号\n   - 布尔：is_official、is_prime → 小写 true / false，不加引号\n4.\
+            \ 空值规则：\n   - 字符串缺失 → \"\"\n   - 数字缺失 → null\n   - 布尔缺失 → null\n5. 无论商品数量多少，永远输出\
+            \ JSON 数组（外层 []）。\n6. platform/平台 固定为 \"Amazon\"，不推断、不变化。\n7. is_official/是否官方自营\
+            \ 定义：卖家为 Amazon.com 则为 true，否则 false。\n8. 若数值字段原始内容为可解析数字字符串，必须转换为 JSON\
+            \ 数字类型输出。\n9. 每个商品对象必须且只能包含上述固定字段，字段不得新增、删除、改名，顺序必须一致。\n10. null 必须输出为原生\
+            \ JSON 的 null，不得加引号。\n11. 若数值字段无法从原始内容中明确解析出数字，则输出 null，不得推断、不得编造。\n12.\
+            \ JSON 必须格式化、带缩进、换行输出，方便阅读。"
+        - edition_type: jinja2
+          id: 010fc41b-c260-4a35-bfe6-a8a4ea9e7da2
+          jinja2_text: "{% for item in json %}\r\n商品名称：{{ item.title }}\r\nASIN：{{\
+            \ item.asin }}\r\n品牌：{{ item.brand }}\r\n当前价格：{{ item.final_price }}\r\
+            \n原价：{{ item.initial_price }}\r\n货币：{{ item.currency }}\r\n库存状态：{{ item.availability\
+            \ }}\r\n评分：{{ item.rating }}\r\n评价数量：{{ item.reviews_count }}\r\n近一月销量：{{\
+            \ item.bought_past_month }}\r\n类目排名：{{ item.bs_rank }}\r\n卖家：{{ item.seller_name\
+            \ }}\r\n是否亚马逊自营：{{ item.seller_name == 'Amazon.com' }}\r\n是否Prime：{{ item.amazon_prime\
+            \ }}\r\n配送信息：{{ item.delivery | join(';') if item.delivery else '' }}\r\
+            \n退换政策：{{ item.return_policy }}\r\n商品链接：{{ item.url }}\r\n{% endfor %}\r\
+            \n\r\n请抽取并输出严格JSON数组，字段名与顺序固定如下：\r\n- platform/平台\r\n- product_name/商品名称\r\
+            \n- asin/商品ASIN\r\n- brand/品牌\r\n- current_price/当前售价\r\n- original_price/划线原价\r\
+            \n- currency/货币类型\r\n- stock_status/库存状态\r\n- rating/评分\r\n- review_count/评价总数\r\
+            \n- sales_volume/近一月销量\r\n- rank/类目排名\r\n- seller/卖家名称\r\n- is_official/是否官方自营\r\
+            \n- is_prime/是否支持Prime\r\n- delivery/配送信息\r\n- return_policy/退换政策\r\n\
+            - product_url/商品链接\r\n\r\n只输出JSON数组，不要任何其他内容。"
+          role: user
+          text: '请分析以下亚马逊商品页面内容：
+
+            {{web_data_amazon_prod.text}}
+
+
+            请按照以下结构输出：
+
+            1. 【商品核心信息】：商品名称、品牌、价格、评分、总评价数
+
+            2. 【核心卖点】：3-5条最吸引用户的产品优势
+
+            3. 【用户评价亮点】：高频好评点和差评点
+
+            4. 【购买建议】：适合人群和注意事项'
+        selected: true
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              items:
+                additionalProperties: false
+                properties:
+                  properties:
+                    additionalProperties: false
+                    properties:
+                      asin/商品ASIN:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      brand/品牌:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      currency/货币类型:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      current_price/当前售价:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      delivery/配送信息:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      is_official/是否官方自营:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      is_prime/是否支持Prime:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      original_price/划线原价:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      platform/平台:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      product_name/商品名称:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      product_url/商品链接:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      rank/类目排名:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      rating/评分:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      return_policy/退换政策:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      review_count/评价总数:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      sales_volume/近一月销量:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      seller/卖家名称:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                      stock_status/库存状态:
+                        additionalProperties: false
+                        properties:
+                          description:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        - description
+                        type: object
+                    required:
+                    - platform/平台
+                    - product_name/商品名称
+                    - asin/商品ASIN
+                    - brand/品牌
+                    - current_price/当前售价
+                    - original_price/划线原价
+                    - currency/货币类型
+                    - stock_status/库存状态
+                    - rating/评分
+                    - review_count/评价总数
+                    - sales_volume/近一月销量
+                    - rank/类目排名
+                    - seller/卖家名称
+                    - is_official/是否官方自营
+                    - is_prime/是否支持Prime
+                    - delivery/配送信息
+                    - return_policy/退换政策
+                    - product_url/商品链接
+                    type: object
+                  required:
+                    items:
+                      type: string
+                    type: array
+                  type:
+                    type: string
+                required:
+                - type
+                - properties
+                - required
+                type: object
+              type:
+                type: string
+            required:
+            - type
+            - items
+            type: object
+        structured_output_enabled: true
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1776049846444'
+      position:
+        x: 712.2464636867726
+        y: 277.6795378466151
+      positionAbsolute:
+        x: 712.2464636867726
+        y: 277.6795378466151
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1776049846444'
+          - structured_output
+          value_type: object
+          variable: text
+        selected: false
+        title: 输出JSON
+        type: end
+      height: 88
+      id: '1776050322836'
+      position:
+        x: 1068.2957829136687
+        y: 277.6795378466151
+      positionAbsolute:
+        x: 1068.2957829136687
+        y: 277.6795378466151
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(data) -> dict:\n    import csv\n    import io\n    import\
+          \ json\n\n    records = data\n\n    if isinstance(records, str):\n     \
+          \   records = json.loads(records)\n\n    if isinstance(records, dict) and\
+          \ \"items\" in records and isinstance(records[\"items\"], list):\n     \
+          \   records = records[\"items\"]\n\n    if isinstance(records, dict):\n\
+          \        records = [records]\n\n    if not isinstance(records, list) or\
+          \ len(records) == 0:\n        return {\"csv_text\": \"\"}\n\n    fieldnames\
+          \ = []\n    for row in records:\n        if isinstance(row, dict):\n   \
+          \         for key in row.keys():\n                if key not in fieldnames:\n\
+          \                    fieldnames.append(key)\n\n    output = io.StringIO()\n\
+          \    writer = csv.DictWriter(output, fieldnames=fieldnames)\n    writer.writeheader()\n\
+          \    writer.writerows(records)\n\n    return {\n        \"csv_text\": output.getvalue()\n\
+          \    }"
+        code_language: python3
+        outputs:
+          csv_text:
+            children: null
+            type: string
+        selected: false
+        title: 转化为csv文本
+        type: code
+        variables:
+        - value_selector:
+          - '1776049846444'
+          - structured_output
+          value_type: object
+          variable: data
+      height: 52
+      id: '1776068466736'
+      position:
+        x: 1035.0304933257385
+        y: 475.242273336164
+      positionAbsolute:
+        x: 1035.0304933257385
+        y: 475.242273336164
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1776068466736'
+          - csv_text
+          value_type: string
+          variable: csv
+        selected: false
+        title: 输出 CSV文本
+        type: end
+      height: 88
+      id: '1776069951945'
+      position:
+        x: 1398.5208771094879
+        y: 475.242273336164
+      positionAbsolute:
+        x: 1398.5208771094879
+        y: 475.242273336164
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 177.59725179704765
+      y: 181.89866667775635
+      zoom: 0.9920250329632935
+  rag_pipeline_variables: []
