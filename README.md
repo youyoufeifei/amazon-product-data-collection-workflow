@@ -76,10 +76,17 @@
 ```
 工作流架构
 输入 URL → Bright Data MCP 采集 → LLM 结构化解析 → 输出 JSON
+
 常见问题
+
 Q1：导入后 MCP 节点置灰报错？
+
 A：MCP 唯一标识 /和名称不一致与模板的不一致，对应不上，更改原节点，重新添加你自己的 Bright Data MCP 并配置变量。
+
 Q2：LLM 节点报错？
+
 A：切换为你自己在 Dify 中配置好的模型，如果编辑Q1后，LLM节点也需要重新选择一下输入变量(选择json)。
+
 Q3：采集失败 / 被限制？
+
 A：检查 Bright Data API Key 是否正确、额度是否有效。
