@@ -15,12 +15,13 @@
 ---
 
 ## 前置准备
-1. 注册 Bright Data 账号（含 $10 免费试用额度）  
-   👉 注册地址：https://brightdata.com/your-affiliate-link
-2. 注册/部署 Dify（云端或本地均可）  
+1. 注册 Bright Data 账号（含 $22 免费试用额度）  
+   👉 注册地址：https://get.brightdata.com/mcpserver-fei
+   用这个链接注册输入折扣码可以有20美金的试用，折扣码是fei20
+3. 注册/部署 Dify（云端或本地均可）  
    👉 Dify 官网：https://dify.ai
-3. 获取 Bright Data MCP API Key
-4. 在 Dify 中配置好可用的 LLM 模型
+4. 获取 Bright Data MCP API Key
+5. 在 Dify 中配置好可用的 LLM 模型
 
 ---
 
